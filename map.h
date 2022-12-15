@@ -31,6 +31,7 @@ public:
     static const int length = 100;
 
 private:
+    // наличие блоков хранится в слоях
     QVector <bool*> layers;
 };
 
