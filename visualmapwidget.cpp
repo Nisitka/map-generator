@@ -3,6 +3,8 @@
 
 #include <QDebug>
 
+#include "map.h"
+
 visualMapWidget::visualMapWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::visualMapWidget)
@@ -25,7 +27,7 @@ visualMapWidget::visualMapWidget(QWidget *parent)
 
 void visualMapWidget::startBuilt()
 {
-    ui->builtProgressBar->setMaximum(300);
+    ui->builtProgressBar->setMaximum(Map::height);
     progress = 0;
     ui->infoProgressLabel->setText(infoStrings[built]);
 

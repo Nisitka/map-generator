@@ -29,11 +29,15 @@ protected:
     void paintEvent(QPaintEvent* pEvent);
 
 private:
+    void saveImage();
+
     enum coordAreaPainter{leftUpX,    leftUpY,
                           rightDownX, rightDownY};
 
     enum optionRepaint{clear, paintMap, null};
     int optRepaint;
+
+    bool callRender;
 
     QPainter* painter;
     void drawFrame();

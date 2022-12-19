@@ -38,6 +38,21 @@ areaDrawWidget::areaDrawWidget(int length, int width)
     pCoordsArea[rightDownY] = length - 5;
 
     optRepaint = paintMap;
+
+    callRender = true;
+}
+
+void areaDrawWidget::saveImage()
+{
+    if (callRender) {
+        callRender = false;
+        QPixmap pixmap(this->size());
+        this->render(&pixmap);
+        pixmap.save("test.png");
+        callRender = true;
+    }
+
+    //this->grab().save("image.png");
 }
 
 QColor areaDrawWidget::colorHeight(int value)
@@ -110,6 +125,8 @@ void areaDrawWidget::paintEvent(QPaintEvent *pEvent)
                     drawBlock(i, j, color);
                 }
             }
+
+            saveImage();
             break;
 
         case null:
